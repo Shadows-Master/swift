@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:humanitarian_icons/humanitarian_icons.dart';
+import 'package:line_icons/line_icon.dart';
+import 'package:line_icons/line_icons.dart';
+import 'package:swift/helpers/config_size.dart';
 import 'package:swift/helpers/constants.dart';
+import 'package:swift/widgets/modals/listerner_permission_modal.dart';
 import 'package:swift/widgets/modals/room_user_modal.dart';
 
 class RoomUserModalDetails extends StatefulWidget {
@@ -14,6 +18,13 @@ class RoomUserModalDetails extends StatefulWidget {
 }
 
 class _RoomUserModalDetailsState extends State<RoomUserModalDetails> {
+  _mListener({BuildContext context}){
+    return showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) => ListenerPermissionModal()
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -67,7 +78,12 @@ class _RoomUserModalDetailsState extends State<RoomUserModalDetails> {
                 UserRoomAvatar(mUsername: "Joshua", mRole: "Talking"),
                 UserRoomAvatar(mUsername: "Jack", mRole: "Listening", mUserPicture: 'assets/images/male.png',),
                 UserRoomAvatar(mUsername: "Kayvon", mRole: "Listening"),
-                UserRoomAvatar(mUsername: "Maya", mRole: "Listening", mUserPicture: 'assets/images/female.png',),
+                UserRoomAvatar(
+                  mUsername: "Maya",
+                  mRole: "Listening",
+                  mUserPicture: 'assets/images/female.png',
+                  onPress: () => _mListener(context: context),
+                ),
                 UserRoomAvatar(mUsername: "Rémy", mRole: "Listening"),
                 UserRoomAvatar(mUsername: "Stacy", mRole: "Listening"),
                 UserRoomAvatar(mUsername: "Tanya", mRole: "Listening"),
@@ -145,3 +161,5 @@ class _RoomUserModalDetailsState extends State<RoomUserModalDetails> {
     );
   }
 }
+
+

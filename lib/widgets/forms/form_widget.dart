@@ -24,6 +24,9 @@ class SwiftTextFormField extends StatelessWidget {
   final Function(String) onFieldSubmitted;
   final List<TextInputFormatter> inputFormatters;
   final int maxLength;
+  final int maxLines;
+  final int minLines;
+  final isExpands;
   final BorderSide borderSide;
 
   SwiftTextFormField(
@@ -45,16 +48,20 @@ class SwiftTextFormField extends StatelessWidget {
       this.onChanged,
       this.onSaved,
       this.maxLength = 7,
+      this.maxLines=1,
+      this.minLines = 1,
       this.inputFormatters,
       this.onFieldSubmitted,
+      this.isExpands = false,
       this.borderSide});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: horizontal(size: 15),
-          vertical: vertical(size: 8)),
+          horizontal: horizontal(size: 12),
+          vertical: vertical(size: 10)
+      ),
       child: TextFormField(
         style: TextStyle(fontSize: 18, color: kFormFillTextColor),
         validator: validator,
@@ -67,10 +74,12 @@ class SwiftTextFormField extends StatelessWidget {
         onFieldSubmitted: onFieldSubmitted,
         onChanged: onChanged,
         keyboardType: keyboardType,
+        textInputAction: TextInputAction.newline,
+        expands: isExpands,
+        maxLines: maxLines,
+        minLines: minLines,
         obscureText: isPassword,
         maxLength: maxLength,
-        minLines: isTextArea ? 4 : 1,
-        maxLines: isTextArea ? 5 : 1,
         decoration: InputDecoration(
           helperText: helperText,
           prefixIcon: prefixIcon,

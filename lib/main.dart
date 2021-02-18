@@ -30,7 +30,7 @@ class Swift extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme(),
-        initialRoute: '/',
+        initialRoute: '/login',
         routes: routes);
   }
 }

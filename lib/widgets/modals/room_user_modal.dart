@@ -59,12 +59,11 @@ class _RoomUserModalState extends State<RoomUserModal> {
                     IconButton(
                         icon: Icon(
                           Icons.close,
-                          color:
-                          kAccentColor,
+                          color: kAccentColor,
                           size: 24,
                         ),
-                        onPressed:
-                            () {})
+                        onPressed: () => Navigator.of(context).pop()
+                        )
                   ],
                 )),
             Expanded(
@@ -94,26 +93,17 @@ class _RoomUserModalState extends State<RoomUserModal> {
                             softWrap: true,
                             style: TextStyle(
                                 color: kAccentColor,
-                                fontSize: fontSize(
-                                    size:
-                                    16),
-                                fontWeight:
-                                FontWeight.w800),
+                                fontSize: fontSize(size: 16),
+                                fontWeight: FontWeight.w800),
                           ),
                         ),
                         Text(
                           'people',
-                          softWrap:
-                          true,
+                          softWrap: true,
                           style: TextStyle(
-                              color:
-                              kAccentColor,
-                              fontSize: fontSize(
-                                  size:
-                                  13),
-                              fontWeight:
-                              FontWeight
-                                  .w700),
+                              color: kAccentColor,
+                              fontSize: fontSize(size: 13),
+                              fontWeight: FontWeight.w700),
                         )
                       ],
                     ),
@@ -134,7 +124,7 @@ class _RoomUserModalState extends State<RoomUserModal> {
                 height: height(size: 50),
                 margin: EdgeInsets.symmetric(
                     horizontal: horizontal(size: 15),
-                    vertical: vertical(size: 8)
+                    vertical: vertical(size: 10)
                 ),
                 child: RaisedButton(
                   color: kPrimaryColor,
@@ -170,7 +160,7 @@ class UserRoomAvatar extends StatelessWidget {
     Key key,
     @required String mUsername,
     @required String mRole,
-    String mUserPicture,
+    String mUserPicture, this.onPress,
   })  : _mUsername = mUsername,
         _mRole = mRole,
         _mUserPicture = mUserPicture,
@@ -179,34 +169,38 @@ class UserRoomAvatar extends StatelessWidget {
   final String _mUsername;
   final String _mRole;
   final String _mUserPicture;
+  final Function onPress;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            backgroundImage: AssetImage(
-                _mUserPicture ?? 'assets/images/avatar-profile.jpg'),
-            radius: 30,
-          ),
-          Text(
-            _mUsername,
-            softWrap: true,
-            style: TextStyle(
-                color: kAccentColor,
-                fontWeight: FontWeight.w700,
-                fontSize: fontSize(size: 13)),
-          ),
-          Text(
-            _mRole,
-            softWrap: true,
-            style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: fontSize(size: 13)),
-          )
-        ],
+    return InkWell(
+      onTap: onPress,
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              backgroundImage: AssetImage(
+                  _mUserPicture ?? 'assets/images/avatar-profile.jpg'),
+              radius: 30,
+            ),
+            Text(
+              _mUsername,
+              softWrap: true,
+              style: TextStyle(
+                  color: kAccentColor,
+                  fontWeight: FontWeight.w700,
+                  fontSize: fontSize(size: 13)),
+            ),
+            Text(
+              _mRole,
+              softWrap: true,
+              style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: fontSize(size: 13)),
+            )
+          ],
+        ),
       ),
     );
   }

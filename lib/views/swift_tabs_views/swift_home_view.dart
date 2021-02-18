@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:humanitarian_icons/humanitarian_icons.dart';
 import 'package:swift/helpers/constants.dart';
 import 'package:swift/helpers/spacer.dart';
 import 'package:swift/widgets/modals/room_user_modal.dart';
@@ -105,7 +106,7 @@ class _SwiftHomeViewState extends State<SwiftHomeView> {
                               IconButton(
                                 icon: Icon(
                                   Icons.more_horiz_rounded,
-                                  color: kTextColor,
+                                  color: kAccentColor,
                                   size: 16,
                                 ),
                                 onPressed: () {},
@@ -116,22 +117,26 @@ class _SwiftHomeViewState extends State<SwiftHomeView> {
                             crossAxisAlignment:
                                 CrossAxisAlignment.start,
                             children: [
-                              Text.rich(TextSpan(
-                                  text: 'Music Awards: ',
-                                  style: TextStyle(
-                                      color: kAccentColor,
-                                      fontSize: fontSize(size: 15),
-                                      fontWeight: FontWeight.w600),
-                                  children: [
-                                    TextSpan(
-                                        text: '50',
-                                        style: TextStyle(
-                                            fontSize:
-                                                fontSize(size: 15),
-                                            color: kPrimaryColor,
-                                            fontWeight:
-                                                FontWeight.w700))
-                                  ])),
+                              Row(
+                                children: [
+                                  Text(
+                                      'Music Awards: ',
+                                      style: TextStyle(
+                                          fontSize: fontSize(size: 15),
+                                          color: kAccentColor,
+                                          fontWeight: FontWeight.w700)
+                                  ),
+                                  Text(
+                                      '50',
+                                      style: TextStyle(
+                                        fontSize: fontSize(size: 15),
+                                        color: kPrimaryColor,
+                                        fontWeight: FontWeight.w700)
+                                  ),
+                                  Icon(HumanitarianIcons.man, )
+                                ],
+                              ),
+                              SpacerHeight(size: 10),
                               Text('03:30',
                                   style: TextStyle(
                                       fontSize: fontSize(size: 15),

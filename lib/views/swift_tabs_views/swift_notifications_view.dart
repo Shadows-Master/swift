@@ -61,8 +61,6 @@ class _SwiftNotificationsViewState
                                 'assets/images/male.png'),
                           ),
                           title: Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 'Jessica Menders',
@@ -71,12 +69,15 @@ class _SwiftNotificationsViewState
                                     color: kAccentColor,
                                     fontSize: fontSize(size: 15)),
                               ),
-                              Text(
-                                'Start follow you',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    color: kAccentColor,
-                                    fontSize: fontSize(size: 15)),
+                              Padding(
+                                padding: EdgeInsets.only(left: 6.0),
+                                child: Text(
+                                  'started following you',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      color: kAccentColor,
+                                      fontSize: fontSize(size: 15)),
+                                ),
                               ),
                             ],
                           ),

@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'config_size.dart';
 
-const kPrimaryColor = Color(0xFF1F58a8);
+const kPrimaryColor = Color(0xFFDC143C);
+const kPrimaryColor2 = Color(0xFF1F58a8);
 const kSecondaryColor = Color(0xFFE3EFFC);
 const kAccentColor = Color(0xFF161e28);
 const kPrimaryLightColor = Colors.pinkAccent;

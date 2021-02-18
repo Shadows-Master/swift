@@ -47,7 +47,7 @@ class _BSwiftNavigationBarState extends State<BSwiftNavigationBar> {
               context.watch<SwiftNavigationProvider>().mIndex,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
-          unselectedItemColor: kTextColor,
+          unselectedItemColor: kAccentColor,
           selectedItemColor: kPrimaryColor,
           onTap: (value) {
             context
